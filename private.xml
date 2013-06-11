@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<root>
+	<devicevendordef>
+		<vendorname>APPLE</vendorname>
+		<vendorid>0x05ac</vendorid>
+	</devicevendordef>
+	<deviceproductdef>
+		<productname>MACBOOKPRO_KEYBOARD</productname>
+		<productid>0x0252</productid>
+	</deviceproductdef>
+	<inputsourcedef>
+		<name>AZERTY</name>
+		<inputsourceid_equal>com.apple.keylayout.French</inputsourceid_equal>
+	</inputsourcedef>
+	<item>
+		<name>PC like modifier keys</name>
+		<item>
+			<name>Change Option_R into Control_R on laptop's keyboard</name>
+			<identifier>deadalnix.remap.laptop.optionR2controlR</identifier>
+			<autogen>--KeyToKey-- KeyCode::OPTION_R, KeyCode::COMMAND_R</autogen>
+			<device_only>DeviceVendor::APPLE, DeviceProduct::MACBOOKPRO_KEYBOARD</device_only>
+		</item>
+		<item>
+			<name>PC style alt+tab</name>
+			<identifier>deadalnix.remap.alttab</identifier>
+			<autogen>--KeyToKey-- KeyCode::TAB, ModifierFlag::OPTION_L | ModifierFlag::NONE, KeyCode::TAB, ModifierFlag::COMMAND_L</autogen>
+			<autogen>--KeyToKey-- KeyCode::TAB, ModifierFlag::OPTION_R | ModifierFlag::NONE, KeyCode::TAB, ModifierFlag::COMMAND_R</autogen>
+		</item>
+		<item>
+			<name>Swap fn and Control_L on laptop's keyboard</name>
+			<appendix>Also remap F1 .. F12 with the new function key.</appendix>
+			<identifier>deadalnix.swap.fn2controlL</identifier>
+			<autogen>--KeyToKey-- KeyCode::FN, KeyCode::COMMAND_L</autogen>
+			<autogen>--KeyToKey-- KeyCode::CONTROL_L, KeyCode::FN</autogen>
+
+			<!-- Fix the F1 .. F12 functions -->
+			<!-- F1 -->
+			<autogen>--ConsumerToKey-- ConsumerKeyCode::BRIGHTNESS_DOWN, ModifierFlag::FN, KeyCode::F1</autogen>
+			<autogen>--KeyToKey--      KeyCode::BRIGHTNESS_DOWN,         ModifierFlag::FN, KeyCode::F1</autogen>
+			<!-- F2 -->
+			<autogen>--ConsumerToKey-- ConsumerKeyCode::BRIGHTNESS_UP,   ModifierFlag::FN, KeyCode::F2</autogen>
+			<autogen>--KeyToKey--      KeyCode::BRIGHTNESS_UP,           ModifierFlag::FN, KeyCode::F2</autogen>
+			<!-- F3 -->
+			<autogen>--KeyToKey--      KeyCode::EXPOSE_ALL, ModifierFlag::FN, KeyCode::F3</autogen>
+			<!-- F4 -->
+			<autogen>--KeyToKey--      KeyCode::DASHBOARD,  ModifierFlag::FN, KeyCode::F4</autogen>
+			<autogen>--KeyToKey--      KeyCode::LAUNCHPAD,  ModifierFlag::FN, KeyCode::F4</autogen>
+			<!-- F5 -->
+			<autogen>--ConsumerToConsumer-- ConsumerKeyCode::KEYBOARDLIGHT_LOW,  ModifierFlag::FN, ConsumerKeyCode::KEYBOARDLIGHT_LOW</autogen>
+			<autogen>--ConsumerToKey-- ConsumerKeyCode::KEYBOARDLIGHT_LOW, KeyCode::F5</autogen>
+			<!-- F6 -->
+			<autogen>--ConsumerToConsumer-- ConsumerKeyCode::KEYBOARDLIGHT_HIGH, ModifierFlag::FN, ConsumerKeyCode::KEYBOARDLIGHT_HIGH</autogen>
+			<autogen>--ConsumerToKey-- ConsumerKeyCode::KEYBOARDLIGHT_HIGH, KeyCode::F6</autogen>
+			<!-- F7 - F12 -->
+			<autogen>--ConsumerToKey-- ConsumerKeyCode::MUSIC_PREV, ModifierFlag::FN, KeyCode::F7</autogen>
+			<autogen>--ConsumerToKey-- ConsumerKeyCode::MUSIC_PLAY, ModifierFlag::FN, KeyCode::F8</autogen>
+			<autogen>--ConsumerToKey-- ConsumerKeyCode::MUSIC_NEXT, ModifierFlag::FN, KeyCode::F9</autogen>
+			<autogen>--ConsumerToKey-- ConsumerKeyCode::VOLUME_MUTE, ModifierFlag::FN, KeyCode::F10</autogen>
+			<autogen>--ConsumerToKey-- ConsumerKeyCode::VOLUME_DOWN, ModifierFlag::FN, KeyCode::F11</autogen>
+			<autogen>--ConsumerToKey-- ConsumerKeyCode::VOLUME_UP,   ModifierFlag::FN, KeyCode::F12</autogen>
+
+			<device_only>DeviceVendor::APPLE, DeviceProduct::MACBOOKPRO_KEYBOARD</device_only>
+		</item>
+		<item>
+			<name>Control + Arrows to skip over words</name>
+			<identifier>deadalnix.remap.ctrl2skipWords</identifier>
+			<block>
+				<not>EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
+				<!-- Don't remap when both key are pressed -->
+				<autogen>--KeyToKey-- KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L, KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L</autogen>
+				<autogen>--KeyToKey-- KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_R | ModifierFlag::OPTION_R, KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_R | ModifierFlag::OPTION_R</autogen>
+				<autogen>--KeyToKey-- KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L, KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L</autogen>
+				<autogen>--KeyToKey-- KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_R | ModifierFlag::OPTION_R, KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_R | ModifierFlag::OPTION_R</autogen>
+				<!-- And remap -->
+				<autogen>--KeyToKey-- KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L, KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_L</autogen>
+				<autogen>--KeyToKey-- KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_R, KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_R</autogen>
+				<autogen>--KeyToKey-- KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L, KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L</autogen>
+				<autogen>--KeyToKey-- KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_R, KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_R</autogen>
+			</block>
+			<autogen>--KeyToKey-- KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L, KeyCode::CURSOR_LEFT, ModifierFlag::CONTROL_L</autogen>
+			<autogen>--KeyToKey-- KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_R, KeyCode::CURSOR_LEFT, ModifierFlag::CONTROL_R</autogen>
+			<autogen>--KeyToKey-- KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L, KeyCode::CURSOR_RIGHT, ModifierFlag::CONTROL_L</autogen>
+			<autogen>--KeyToKey-- KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_R, KeyCode::CURSOR_RIGHT, ModifierFlag::CONTROL_R</autogen>
+		</item>
+		<item>
+			<name>Control/Option/Command dance.</name>
+			<identifier>deadalnix.dance.ctrlIOptionCommandDance</identifier>
+			<autogen>--KeyToKey-- KeyCode::COMMAND_L, KeyCode::OPTION_L</autogen>
+			<autogen>--KeyToKey-- KeyCode::OPTION_L, KeyCode::CONTROL_L</autogen>
+			<autogen>--KeyToKey-- KeyCode::CONTROL_L, KeyCode::COMMAND_L</autogen>
+			<autogen>--KeyToKey-- KeyCode::COMMAND_R, KeyCode::OPTION_R</autogen>
+			<autogen>--KeyToKey-- KeyCode::OPTION_R, KeyCode::CONTROL_R</autogen>
+			<autogen>--KeyToKey-- KeyCode::CONTROL_R, KeyCode::COMMAND_R</autogen>
+			<not>EMACS, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
+		</item>
+		<item>
+			<name>Disable Caps lock on shift</name>
+			<identifier>deadalnix.remap.shiftcapslock</identifier>
+			<!-- have a know, bug when woth shift are used -->
+			<modifier_only>ModifierFlag::CAPSLOCK</modifier_only>
+			<autogen>--KeyToKey--
+				KeyCode::SHIFT_L,
+				Option::KEYTOKEY_BEFORE_KEYDOWN, KeyCode::CAPSLOCK,
+				Option::KEYTOKEY_AFTER_KEYUP, KeyCode::CAPSLOCK
+			</autogen>
+		</item>
+		<item>
+			<name>Fix Home and End</name>
+			<identifier>deadalnix.remap.homeend</identifier>
+			<block>
+				<not>EMACS, TERMINAL, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
+				<autogen>--KeyToKey-- FROMKEYCODE_HOME, VK_COMMAND, KeyCode::CURSOR_UP,    ModifierFlag::COMMAND_L</autogen>
+				<autogen>--KeyToKey-- FROMKEYCODE_HOME, VK_CONTROL, KeyCode::CURSOR_UP,    ModifierFlag::COMMAND_L</autogen>
+				<autogen>--KeyToKey-- FROMKEYCODE_END,  VK_COMMAND, KeyCode::CURSOR_DOWN,  ModifierFlag::COMMAND_L</autogen>
+				<autogen>--KeyToKey-- FROMKEYCODE_END,  VK_CONTROL, KeyCode::CURSOR_DOWN,  ModifierFlag::COMMAND_L</autogen>
+				<autogen>--KeyToKey-- FROMKEYCODE_HOME,             KeyCode::CURSOR_LEFT,  ModifierFlag::COMMAND_L</autogen>
+				<autogen>--KeyToKey-- FROMKEYCODE_END,              KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L</autogen>
+			</block>
+		</item>
+<!--
+		<item>
+			<name>Set Return as Enter</name>
+			<identifier>deadalnix.remap.returntoenter</identifier>
+			<block>
+				<autogen>--KeyToKey-- KeyCode::RETURN, KeyCode::ENTER</autogen>
+			</block>
+		</item>
+-->
+	</item>
+	<item>
+		<name>Regular french keyboard</name>
+		<item>
+			<name>French PC keyboard layout</name>
+			<appendix>Rollback Apple changes to AZERTY layout</appendix>
+			<inputsource_only>AZERTY</inputsource_only>
+			<identifier>deadalnix.remap.pc_french_keyboard_layout</identifier>
+			<!-- KEY_6 to '-' -->
+			<autogen>--KeyToKey-- KeyCode::KEY_6, ModifierFlag::NONE, KeyCode::EQUAL</autogen>
+			<!-- KEY_8 to '_' -->
+			<autogen>--KeyToKey-- KeyCode::KEY_8, ModifierFlag::NONE, KeyCode::EQUAL, ModifierFlag::SHIFT_R</autogen>
+			<!-- EQUAL to '=' -->
+			<autogen>--KeyToKey-- KeyCode::EQUAL, ModifierFlag::NONE, KeyCode::SLASH, ModifierFlag::NONE</autogen>
+			<!-- EQUAL + Right Shift to '+' -->
+			<autogen>--KeyToKey-- KeyCode::EQUAL, ModifierFlag::SHIFT_R, KeyCode::SLASH, ModifierFlag::SHIFT_R</autogen>
+			<!-- ExclamationMark(SLASH) to '!' -->
+			<autogen>--KeyToKey-- KeyCode::SLASH, ModifierFlag::NONE, KeyCode::KEY_8, ModifierFlag::NONE</autogen>
+			<!-- MultiplySign(BackSlash) to '*' -->
+			<autogen>--KeyToKey-- KeyCode::BACKSLASH, ModifierFlag::NONE, KeyCode::KEYPAD_MULTIPLY, ModifierFlag::NONE</autogen>
+			<!-- KEY_2 + AltGr to '~' -->
+			<autogen>--KeyToKey-- KeyCode::KEY_2, ModifierFlag::OPTION_R, KeyCode::N, ModifierFlag::OPTION_R</autogen>
+			<!-- KEY_3 + AltGr to '#' -->
+			<autogen>--KeyToKey-- KeyCode::KEY_3, ModifierFlag::OPTION_R, KeyCode::UK_SECTION, ModifierFlag::SHIFT_R</autogen>
+			<!-- KEY_4 + AltGr to '{' -->
+			<autogen>--KeyToKey-- KeyCode::KEY_4, ModifierFlag::OPTION_R, KeyCode::KEY_5, ModifierFlag::OPTION_R</autogen>
+			<!-- KEY_5 + AltGr to '[' -->
+			<autogen>--KeyToKey-- KeyCode::KEY_5, ModifierFlag::OPTION_R, KeyCode::KEY_5, ModifierFlag::OPTION_R | ModifierFlag::SHIFT_R</autogen>
+			<!-- KEY_6 + AltGr to '|' -->
+			<autogen>--KeyToKey-- KeyCode::KEY_6, ModifierFlag::OPTION_R, KeyCode::L, ModifierFlag::OPTION_R | ModifierFlag::SHIFT_R</autogen>
+			<!-- KEY_7 + AltGr to '`' -->
+			<autogen>--KeyToKey-- KeyCode::KEY_7, ModifierFlag::OPTION_R, KeyCode::BACKSLASH</autogen>
+			<!-- KEY_8 + AltGr to '\' -->
+			<autogen>--KeyToKey-- KeyCode::KEY_8, ModifierFlag::OPTION_R, KeyCode::DOT, ModifierFlag::OPTION_R | ModifierFlag::SHIFT_R</autogen>
+			<!-- KEY_0 + AltGr to '@' -->
+			<autogen>--KeyToKey-- KeyCode::KEY_0, ModifierFlag::OPTION_R, KeyCode::UK_SECTION, ModifierFlag::NONE</autogen>
+			<!-- MINUS + AltGr to ']' -->
+			<autogen>--KeyToKey-- KeyCode::MINUS, ModifierFlag::OPTION_R, KeyCode::MINUS, ModifierFlag::OPTION_R | ModifierFlag::SHIFT_R</autogen>
+			<!-- EQUAL + AltGr to '}' -->
+			<autogen>--KeyToKey-- KeyCode::EQUAL, ModifierFlag::OPTION_R, KeyCode::MINUS, ModifierFlag::OPTION_R</autogen>
+			<!-- KEYPAD_DOT to '.' -->
+			<autogen>--KeyToKey-- KeyCode::KEYPAD_DOT, ModifierFlag::NONE, KeyCode::COMMA, ModifierFlag::SHIFT_R</autogen>
+			<!-- e + AltGr to '€' -->
+			<autogen>--KeyToKey-- KeyCode::E, ModifierFlag::OPTION_R, KeyCode::BRACKET_RIGHT, ModifierFlag::OPTION_R</autogen>
+		</item>
+	</item>
+</root>
