@@ -91,6 +91,10 @@
 			<autogen>--KeyToKey-- KeyCode::COMMAND_R, KeyCode::OPTION_R</autogen>
 			<autogen>--KeyToKey-- KeyCode::OPTION_R, KeyCode::CONTROL_R</autogen>
 			<autogen>--KeyToKey-- KeyCode::CONTROL_R, KeyCode::COMMAND_R</autogen>
+
+			<!-- Ensure the lock with ctrl + shift + eject still work -->
+			<autogen>__ConsumerToConsumer__ ConsumerKeyCode::EJECT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE, ConsumerKeyCode::EJECT, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L</autogen>
+
 			<not>EMACS, VIRTUALMACHINE, REMOTEDESKTOPCONNECTION, X11, ECLIPSE</not>
 		</item>
 		<item>
