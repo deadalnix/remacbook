@@ -6,7 +6,7 @@
 	</devicevendordef>
 	<deviceproductdef>
 		<productname>MACBOOKPRO_KEYBOARD</productname>
-		<productid>0x0252</productid>
+		<productid>0x0262</productid>
 	</deviceproductdef>
 	<inputsourcedef>
 		<name>AZERTY</name>
